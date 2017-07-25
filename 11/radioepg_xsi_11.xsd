@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://schemas.radiodns.org/epg/11"
+           targetNamespace="http://schemas.radiodns.org/epg/11"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"            
+           xmlns:epg="http://www.worlddab.org/schemas/epgDataTypes/14"
+           xmlns:georss="http://www.georss.org/georss/11"   
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+             schemaLocation="http://www.w3.org/2001/xml.xsd" />
+  <xs:import namespace="http://www.worlddab.org/schemas/epgDataTypes/14"
+            schemaLocation="http://www.worlddab.org/schemas/epgDataTypes/14/epgDataTypes_14.xsd" />
+<!--   <xs:import namespace="http://www.georss.org/georss/11"
+             schemaLocation="http://georss.org/xml/1.1/georss.xsd" /> -->
+
+   
+  <xs:element name="serviceInformation">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name="services" type="servicesType" minOccurs="0" maxOccurs="1" />
+    <xs:element name="groups" type="groupsType" minOccurs="0" maxOccurs="1" />
+   </xs:sequence>
+   <xs:attribute name="creationTime" type="epg:timePointType" />
+   <xs:attribute name="originator" type="epg:originatorType" />
+   <xs:attribute name="serviceProvider" type="epg:serviceProviderType" />
+   <xs:attribute ref="xml:lang" use="required" />
+  </xs:complexType>
+ </xs:element>
+
+ <xs:complexType name="groupsType">
+  <xs:sequence>
+   <xs:element name="group" type="groupType" maxOccurs="unbounded" />
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="servicesType">
+  <xs:sequence>
+   <xs:element name="serviceProvider" type="serviceProviderType" minOccurs="0" maxOccurs="1" />
+   <xs:element name="service" type="serviceType" minOccurs="0" maxOccurs="unbounded" />
+  </xs:sequence>
+ </xs:complexType>
+
+<xs:complexType name="serviceProviderType">
+  <xs:sequence>
+   <xs:group ref="epg:serviceNameGroup" maxOccurs="unbounded" />
+   <xs:element name="mediaDescription" type="epg:mediaDescriptionType" 
+               minOccurs="0" maxOccurs="unbounded" />
+   <xs:element name="link" type="epg:linkType" minOccurs="0" maxOccurs="unbounded" />
+   <xs:element name="location" type="locationType" minOccurs="0" maxOccurs="1" />
+
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="serviceType">
+  <xs:sequence>
+   <xs:element name="serviceID" type="serviceIDType" minOccurs="0" maxOccurs="unbounded" />
+   <xs:group ref="epg:serviceNameGroup" maxOccurs="unbounded" />
+   <xs:element name="mediaDescription" type="epg:mediaDescriptionType" 
+               minOccurs="0" maxOccurs="unbounded" />
+   <xs:element name="genre" type="epg:genreType" minOccurs="0" maxOccurs="unbounded" />
+   <xs:element name="keywords" type="epg:keywordsType" minOccurs="0" 
+               maxOccurs="unbounded" />
+   <xs:element name="link" type="epg:linkType" minOccurs="0" maxOccurs="unbounded" />
+   <xs:element name="memberOf" type="memberOfType" minOccurs="0" maxOccurs="unbounded"/>
+   <xs:element name="radiodns" type="radiodnsType" minOccurs="0" maxOccurs="1" />
+   <xs:element name="location" type="locationType" minOccurs="0" maxOccurs="1" />
+  </xs:sequence>
+ </xs:complexType>
+
+ <xs:complexType name="memberOfType">
+  <xs:attribute name="id" type="xs:string" use="required" />
+ </xs:complexType>
+
+ <xs:complexType name="radiodnsType">
+  <xs:attribute name="fqdn" type="xs:string" use="required" />
+  <xs:attribute name="serviceIdentifier" type="xs:string" use="required" />
+ </xs:complexType>
+
+ <xs:complexType name="serviceIDType">
+  <xs:attribute name="id" type="xs:anyURI" />
+  <xs:attribute name="mime" type="xs:string" />
+  <xs:attribute name="bitrate" type="xs:nonNegativeInteger" />
+  <xs:attribute name="cost" type="xs:nonNegativeInteger" />
+  <xs:attribute name="offset" type="xs:nonNegativeInteger" default="0"/>
+ </xs:complexType>
+
+ <xs:complexType name="locationType">
+  <xs:sequence>
+    <!-- xs:element name="point" type="georss:point" minOccurs="0" maxOccurs="unbounded" /-->
+    <!-- xs:element name="polygon" type="georss:polygon" minOccurs="0" maxOccurs="unbounded" /-->
+    <xs:element name="point" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+    <xs:element name="polygon" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+    <xs:element name="country" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+  </xs:sequence>
+</xs:complexType>
+
+ <xs:complexType name="groupType">
+  <xs:sequence>
+   <xs:group ref="epg:serviceNameGroup" maxOccurs="unbounded" />
+     <xs:element name="mediaDescription" type="epg:mediaDescriptionType" 
+                     minOccurs="0" maxOccurs="unbounded" />
+     <xs:element name="genre" type="epg:genreType" 
+                     minOccurs="0" maxOccurs="unbounded" />
+     <xs:element name="keywords" type="epg:keywordsType" 
+                     minOccurs="0" maxOccurs="unbounded" />
+     <xs:element name="link" type="epg:linkType" minOccurs="0" maxOccurs="unbounded" />
+  </xs:sequence>
+  <xs:attribute name="id" type="xs:string" />
+ </xs:complexType>
+
+</xs:schema>

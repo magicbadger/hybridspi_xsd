@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceInformation 
+    xmlns="http://schemas.radiodns.org/epg/11" 
+    xmlns:epg="http://www.worlddab.org/schemas/epgDataTypes/14" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.radiodns.org/epg/11 http://schemas.radiodns.org/epg/11/radioepg_xsi_11.xsd" creationTime="2013-05-23T14:05:00+01:00" originator="Global Radio" xml:lang="en">
+    <services>
+        <serviceProvider>
+            <epg:shortName xml:lang="en">Global</epg:shortName>
+            <epg:mediumName xml:lang="en">Global Radio</epg:mediumName>
+            <mediaDescription>
+                <epg:multimedia url="http://epg.musicradio.com/logos/global/320x240.png" mimeValue="image/png" type="logo_unrestricted" height="240" width="320" />
+            </mediaDescription>
+            <mediaDescription>
+                <epg:multimedia url="http://epg.musicradio.com/logos/global/32x32.png" mimeValue="image/png" type="logo_colour_square" height="32" width="32" />
+            </mediaDescription>
+            <keywords xml:lang="en">radio, television, publishing, talent, charities &amp;communities</keywords>
+            <link url="http://www.thisisglobal.com" mimeValue="text/html" description="Global homepage" xml:lang="en" />
+            <link url="postal:Global%20Radio/30%20Leicester%20Square/London/WC2H%207LA" />
+            <link url="tel:+44-020-77666000" />
+            <location>
+                <country>GB</country>
+                <point>51.473939 -2.508112</point>
+            </location>
+        </serviceProvider>
+        <service>
+            <serviceID id="dab:ce1.c185.c479.0" mime="audio/mpeg" offset="2000" cost="20" />
+            <serviceID id="fm:ce1.c479.09580" cost="30" />
+            <serviceID id="http://media-ice.musicradio.com/Capital" offset="4000" mime="audio/aacp" bitrate="48" cost="40" />
+            <serviceID id="http://media-ice.musicradio.com/CapitalMP3Low" offset="4000" mime="audio/mpeg" bitrate="48" cost="40" />
+            <epg:shortName xml:lang="en">Capital</epg:shortName>
+            <epg:mediumName xml:lang="en">Capital FM</epg:mediumName>
+            <epg:longName xml:lang="en">Capital London</epg:longName>
+            <epg:shortDescription xml:lang="en">London's No.1 Hit Music Station</epg:shortDescription>
+            <mediaDescription>
+                <epg:shortDescription xml:lang="en">London's No.1 Hit Music Station</epg:shortDescription>
+            </mediaDescription>
+            <mediaDescription>
+                <epg:multimedia type="logo_colour_square" url="http://owdo.thisisglobal.com/2.0/id/25/logo/32x32.png" />
+            </mediaDescription>
+            <mediaDescription>
+                <epg:multimedia type="logo_colour_rectangle" url="http://owdo.thisisglobal.com/2.0/id/25/logo/32x96.png" />
+            </mediaDescription>
+            <mediaDescription>
+                <epg:multimedia height="128" type="logo_unrestricted" url="http://owdo.thisisglobal.com/2.0/id/25/logo/128x128.png" width="128" />
+            </mediaDescription>
+            <mediaDescription>
+                <epg:multimedia height="240" type="logo_unrestricted" url="http://owdo.thisisglobal.com/2.0/id/25/logo/320x240.jpg" width="320" />
+            </mediaDescription>
+            <mediaDescription>
+                <epg:multimedia height="480" type="logo_unrestricted" url="http://owdo.thisisglobal.com/2.0/id/25/logo/640x480.jpg" width="640" />
+            </mediaDescription>
+            <mediaDescription>
+                <epg:multimedia height="800" type="logo_unrestricted" url="http://owdo.thisisglobal.com/2.0/id/25/logo/800x800.jpg" width="800" />
+            </mediaDescription>
+            <epg:genre href="urn:tva:metadata:cs:ContentCS:2004:3.6.10">
+                <epg:name>Hit-Chart/Song Requests</epg:name>
+            </epg:genre>
+            <epg:genre href="urn:tva:metadata:cs:ContentCS:2004:3.6.8">
+                <epg:name>Electronic/Club/Urban/Dance</epg:name>
+            </epg:genre>
+            <epg:genre href="urn:tva:metadata:cs:ContentCS:2004:3.1.1.11">
+                <epg:name>Local/Regional</epg:name>
+            </epg:genre>
+            <epg:genre href="urn:tva:metadata:cs:ContentCS:2004:3.6.8.14">
+                <epg:name>Dance/Dance-pop</epg:name>
+            </epg:genre>
+            <epg:genre href="urn:tva:metadata:cs:ContentCS:2004:3.1.4.12">
+                <epg:name>Showbiz</epg:name>
+            </epg:genre>
+            <keywords xml:lang="en">London, music, pop, rock, dance, urban</keywords>
+            <link description="Text the Studio" url="sms:83958" />
+            <link url="http://www.capitalfm.com/london" mimeValue="text/html" xml:lang="en" />
+            <location>
+                <country>GB</country>
+                <polygon>51.524124 -2.709503 51.572803 -2.668304 51.616310 -2.572174 51.575363 -2.412872 51.504471 -2.379913 51.426613 -2.471924 51.400063 -2.460937 51.387211 -2.511749 51.328896 -2.708130 51.273087 -2.772675 51.238705 -2.938843 51.258476 -3.036346 51.376068 -3.026733 51.472401 -2.859879 51.524124 -2.709503            </polygon>
+            </location>
+            <radiodns fqdn="www.capitalfm.com" serviceIdentifier="london" />
+            <memberOf id="capital" />
+        </service>
+    </services>
+    <groups>
+        <group id="capital">
+            <epg:shortName>Capital</epg:shortName>
+            <epg:mediumName>Capital FM</epg:mediumName>
+            <mediaDescription>
+                <epg:shortDescription xml:lang="en-GB"> The UK's No.1 Hit Music Station</epg:shortDescription>
+            </mediaDescription>
+            <link description="Capital FM on Wikipedia" mimeValue="text/html" url="http://en.wikipedia.org/wiki/Capital_(radio_network)" />
+            <mediaDescription>
+                <epg:multimedia type="logo_colour_square" url="http://owdo.thisisglobal.com/2.0/id/153/logo/32x32.png" />
+            </mediaDescription>
+            <mediaDescription>
+                <epg:multimedia type="logo_colour_rectangle" url="http://owdo.thisisglobal.com/2.0/id/153/logo/32x112.png" />
+            </mediaDescription>
+            <mediaDescription>
+                <epg:multimedia height="128" type="logo_unrestricted" url="http://owdo.thisisglobal.com/2.0/id/153/logo/128x128.jpg" width="128" />
+            </mediaDescription>
+            <mediaDescription>
+                <epg:multimedia height="240" type="logo_unrestricted" url="http://owdo.thisisglobal.com/2.0/id/153/logo/320x240.jpg" width="320" />
+            </mediaDescription>
+            <mediaDescription>
+                <epg:multimedia height="480" type="logo_unrestricted" url="http://owdo.thisisglobal.com/2.0/id/153/logo/640x480.jpg" width="640" />
+            </mediaDescription>
+        </group>
+    </groups>
+</serviceInformation>
