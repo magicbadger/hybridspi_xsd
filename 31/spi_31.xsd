@@ -2,13 +2,13 @@
 <xs:schema targetNamespace="http://www.worlddab.org/schemas/spi/31" 
    xmlns="http://www.worlddab.org/schemas/spi/31"
    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-   xmlns:georss="http://www.georss.org/georss/10"
+   xmlns:georss="http://www.georss.org/georss"
    elementFormDefault="qualified">
 
    <xs:import namespace="http://www.w3.org/XML/1998/namespace"
       schemaLocation="http://www.w3.org/2001/xml.xsd" />
-   <xs:import namespace="http://www.georss.org/georss/10" 
-      schemaLocation="http://www.georss.org/xml/1.0/georss.xsd" />
+   <xs:import namespace="http://www.georss.org/georss" 
+      schemaLocation="georss.xsd" />
 
    <!-- ##################################################################### -->
    <!-- Common data types, groups and elements (clause 5) -->
