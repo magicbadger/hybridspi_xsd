@@ -1,3 +1,5 @@
+SPI Schema for SPI 3.1, including example files from the specification
+
 Validating documents
 --------------------
 
