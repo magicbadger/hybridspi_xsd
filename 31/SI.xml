@@ -2,7 +2,7 @@
 <serviceInformation xmlns="http://www.worlddab.org/schemas/spi/31" 
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xmlns:xml="http://www.w3.org/XML/1998/namespace"
-   xsi:schemaLocation="http://www.worlddab.org/schemas/spi/31 spi_31.xsd" 
+   xsi:schemaLocation="http://www.worlddab.org/schemas/spi/31 http://www.worlddab.org/schemas/spi/31/spi_31.xsd" 
    creationTime="2014-04-25T00:05:31+01:00" originator="Global Radio"
    xml:lang="en">
    <services>
@@ -86,6 +86,10 @@
          <bearer id="http://media-ice.musicradio.com/CapitalMP3Low" offset="4000" 
                  mimeValue="audio/mpeg" bitrate="48" cost="40" />
          <radiodns fqdn="www.capitalfm.com" serviceIdentifier="london" />
+         <lexeme>
+             <grapheme>Capital FM</grapheme>
+             <alias>Capital F M</alias>
+         </lexeme>         
          <geolocation>
             <country>GB</country>
             <polygon>

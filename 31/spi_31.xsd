@@ -247,19 +247,36 @@
 	  <xs:attribute name="ref" type="xs:IDREF" use="optional" />
       <xs:anyAttribute namespace="##other" processContents="lax" />
    </xs:complexType>
-
-   <!-- Definition of epg element -->
-   <xs:element name="epg">
-      <xs:complexType>
-         <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:element name="programmeGroups" type="programmeGroupsType" />
-            <xs:element name="schedule" type="scheduleType" />
-         </xs:choice>
-         <xs:attribute ref="xml:lang" default="en" />
-         <xs:anyAttribute namespace="##other" processContents="lax" />
-      </xs:complexType>
-   </xs:element>
-
+   
+   <!-- Definition of lexemeType -->
+   <xs:complexType name="lexemeType">
+   	  <xs:sequence>
+      	 <xs:element name="grapheme" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+      	 <xs:element name="alias" type="aliasType" minOccurs="0" maxOccurs="unbounded" />
+      	 <xs:element name="phoneme" type="phonemeType" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+   </xs:complexType>   
+   
+    <!-- Definition of aliasType -->
+   <xs:complexType name="aliasType">
+      <xs:simpleContent>
+         <xs:extension base="xs:string">
+            <xs:attribute ref="xml:lang" use="optional" />
+            <xs:attribute name="prefer" type="xs:boolean" use="optional" default="false" />
+         </xs:extension>
+      </xs:simpleContent>
+   </xs:complexType>   
+   
+    <!-- Definition of phonemeType -->
+   <xs:complexType name="phonemeType">
+      <xs:simpleContent>
+         <xs:extension base="xs:string">
+            <xs:attribute ref="xml:lang" use="optional" />
+            <xs:attribute name="prefer" type="xs:boolean" use="optional" default="false" />
+            <xs:attribute name="alphabet" type="xs:string" use="optional" />
+         </xs:extension>
+      </xs:simpleContent>
+   </xs:complexType>      
 
    <!-- ##################################################################### -->
    <!-- Service Information (clause 6) -->
@@ -278,6 +295,7 @@
          <xs:attribute name="originator" type="originatorType" />
          <xs:attribute name="serviceProvider" type="originatorType"/>
          <xs:attribute name="terms" type="xs:anyURI" />
+         <xs:attribute name="alphabet" type="xs:string" />
          <xs:attribute ref="xml:lang" default="en" />
          <xs:anyAttribute namespace="##other" processContents="lax" />
       </xs:complexType>
@@ -307,6 +325,7 @@
          <xs:element name="mediaDescription" type="mediaDescriptionType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="keywords" type="keywordsType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="link" type="linkType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="lexeme" type="lexemeType" minOccurs="0" />         
          <xs:element name="geolocation" type="geolocationType" minOccurs="0" />
          <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
@@ -323,9 +342,10 @@
          <xs:element name="link" type="linkType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="bearer" type="bearerType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="radiodns" type="radiodnsType" minOccurs="0" />
+         <xs:element name="lexeme" type="lexemeType" minOccurs="0" />         
          <xs:element name="geolocation" type="geolocationType" minOccurs="0" />
          <xs:element name="serviceGroupMember" type="serviceGroupMemberType" minOccurs="0" maxOccurs="unbounded" />
-          <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
       <xs:attribute name="version" type="xs:positiveInteger" default="1"/>
       <xs:anyAttribute namespace="##other" processContents="lax" />
@@ -380,6 +400,19 @@
    <!-- Programme Information (clause 7) -->
    <!-- ##################################################################### -->
 
+   <!-- Definition of epg element -->
+   <xs:element name="epg">
+      <xs:complexType>
+         <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="programmeGroups" type="programmeGroupsType" />
+            <xs:element name="schedule" type="scheduleType" />
+         </xs:choice>
+         <xs:attribute name="alphabet" type="xs:string" />                  
+         <xs:attribute ref="xml:lang" default="en" />
+         <xs:anyAttribute namespace="##other" processContents="lax" />
+      </xs:complexType>
+   </xs:element>
+
    <!-- Definition of scheduleType -->
    <xs:complexType name="scheduleType">
       <xs:sequence>
@@ -421,6 +454,7 @@
          <xs:element name="keywords" type="keywordsType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="memberOf" type="memberOfType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="link" type="linkType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="lexeme" type="lexemeType" minOccurs="0" />         
          <xs:element name="programmeEvent" type="programmeEventType" minOccurs="0" maxOccurs="unbounded" />
          <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
       </xs:sequence>
@@ -460,6 +494,7 @@
          <xs:element name="keywords" type="keywordsType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="memberOf" type="memberOfType" minOccurs="0" maxOccurs="unbounded" />
          <xs:element name="link" type="linkType" minOccurs="0" maxOccurs="unbounded" />
+         <xs:element name="lexeme" type="lexemeType" minOccurs="0" />         
          <xs:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
       </xs:sequence>
       <xs:attribute name="shortId" type="shortCRIDType" use="required" />
@@ -550,6 +585,7 @@
          <xs:element name="keywords" type="keywordsType" minOccurs="0" maxOccurs="unbounded"/>
          <xs:element name="memberOf" type="memberOfType" minOccurs="0" maxOccurs="unbounded"/>
          <xs:element name="link" type="linkType" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="lexeme" type="lexemeType" minOccurs="0" />         
       </xs:sequence>
       <xs:attribute name="shortId" type="shortCRIDType" use="required" />
       <xs:attribute name="id" type="CRIDType" use="required" />
